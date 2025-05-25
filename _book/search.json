@@ -1,0 +1,132 @@
+[
+  {
+    "objectID": "intro.html",
+    "href": "intro.html",
+    "title": "1  Einführung",
+    "section": "",
+    "text": "1.1 Erste Schritte in R\nDas ist nur eine Demo um zu zeigen, wie eine mögliche Integration in den Modulinhalt aussehen könnte.\nIn der Praxis arbeitet man oft mit großen Datenmengen, bei denen eine Berechnung von Hand sehr aufwendig wäre. Daher kann es sinnvoll,sein diese Berechnungen mit einer Statistiksoftware durchzuführen.\nWir nutzen R, eine freie Software, die sich besonders gut für statistische Analysen eignet. R ist eine Programmiersprache und bietet eine Vielzahl von Funktionen und Paketen, die es ermöglichen, Daten zu importieren, zu bearbeiten und zu analysieren. In diesem Abschnitt werden Sie lernen, wie Sie erste Schritte in der Programmiersprache unternehmen können.\nDas praktische an diesem digitalen Buch ist, dass Sie direkt im Browser mit R arbeiten können. Sie benötigen zunächst keine zusätzliche Softwareinstallation. Alles, was Sie brauchen, ist ein Internetzugang und einen Webbrowser.\nIn einem späteren Abschnitt werden wir Ihnen zeigen, wie Sie R auf Ihrem eigenen Computer installieren können, um auch offline arbeiten zu können und Ihre eigenen Datensätze zu analysieren.\nWir verwenden interaktive Codeblöcke. Sie können den Code in solchen Blöcken ausführen, indem Sie auf die Schaltfläche “Run Code” klicken.\nDesweiteren können Sie auch auf “Start Over” klicken, um den Codeblock auf den Anfangszustand zurückzusetzen und von vorne zu beginnen.\nEinige Aufgaben enthalten einen Button “Show Hint”, der Ihnen Hinweise zur Lösung der Aufgabe gibt.\nWenn Ihnen das nicht geholfen hat und sie die Lösung sehen möchten, können Sie auf “Show Solution” klicken. Diese Option sollten Sie allerdings nur verwenden, wenn Sie selber wirklich nicht weiterkommen, denn es ist ein wichtiger Bestandteil des Lernprozesses, sich selbstständig Lösungen zu erarbeiten.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Einführung</span>"
+    ]
+  },
+  {
+    "objectID": "intro.html#maße-der-zentralen-tendenz",
+    "href": "intro.html#maße-der-zentralen-tendenz",
+    "title": "1  Einführung",
+    "section": "",
+    "text": "1.1.1 Erster Einblick in den Datensatz\nSchauen wir uns zunächst einmal an, wie der Datensatz aussieht.\n\n\nCode\nlibrary(DT)\ndata(penguins)\ndatatable(penguins, filter = \"top\", options = list(pageLength = 5, autoWidth = TRUE))",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Einführung</span>"
+    ]
+  },
+  {
+    "objectID": "summary.html",
+    "href": "summary.html",
+    "title": "rtutorial",
+    "section": "",
+    "text": "```{r}\n#| echo: false\nlibrary(webexercises)\n```\nWas ist das Ergebnis der folgenden Berechnung in R?\n\n6+9/3\n\nDas Ergebnis ist",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>summary.html</span>"
+    ]
+  },
+  {
+    "objectID": "intro.html#erster-einblick-in-den-datensatz",
+    "href": "intro.html#erster-einblick-in-den-datensatz",
+    "title": "1  Einführung",
+    "section": "2.1 Erster Einblick in den Datensatz",
+    "text": "2.1 Erster Einblick in den Datensatz\nSchauen wir uns zunächst einmal an, wie der Datensatz aussieht.\n\n\nCode\nlibrary(DT)\ndatatable(penguins, filter = \"top\", options = list(pageLength = 5, autoWidth = TRUE))\n\n\n\n\n\n\nWir können sehen, dass der Datensatz Informationen über verschiedene Pinguinarten enthält, einschließlich weiterer Merkmale wie Gewicht, Geschlecht, Körpergröße und Flossenlänge sowie das Jahr, in dem die Daten erhoben wurden.\nWenn Sie in R einen Datensatz zum ersten Mal inspizieren, kann Ihnen die Funktion head() helfen, die ersten paar Zeilen des Datensatzes anzuzeigen. Dies ist besonders nützlich, um einen schnellen Überblick über die Struktur und den Inhalt des Datensatzes zu erhalten.\nVersuchen Sie sich an der Funktion head() mit dem penguins-Datensatz.\nLeider ist webr als interaktive Komponente noch nicht auf dem Stand von R 4.5. Daher kann der Datensatz penguins nicht direkt verwendet werden. Zum Testen als Platzhalter dient iris\n\nAufgabeHinweisLösung\n\n\n\n\n\n\n\n\n\n\n\n\n\nVerwenden Sie die Funktion head(). Fügen Sie den Namen des Datensatzes in die Klammern ein. In unserem Fall ist das penguins.\n\n\n\n\n\n\nhead(iris)\nhead(iris)",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Einführung</span>"
+    ]
+  },
+  {
+    "objectID": "intro.html#die-palmer-archipel-pingune",
+    "href": "intro.html#die-palmer-archipel-pingune",
+    "title": "1  Einführung",
+    "section": "1.3 Die Palmer-Archipel Pingune",
+    "text": "1.3 Die Palmer-Archipel Pingune\n\n\n\nDie Palmer-Archipel Pinguine. Artwork von Allison Horst.\n\n\nIm Alltag wird R selten als Taschenrechner verwendet. Vielmehr hat man oft große Datenmengen in umfangreichen Tabellen vorliegen. Eine solche Tabelle ist auch der “penguins”-Datensatz, der Informationen über Pinguine enthält, wie z. B. die Körpergröße, das Gewicht und die Art. Diese Daten stammen von der Palmer-Station in der Antarktis. Der Großteil der wissenschaftlichen Forschung, die an der Palmer-Station durchgeführt wird, betrifft die Meeresbiologie.\nSchauen wir uns zunächst einmal an, wie der Datensatz aussieht.\n\n\nCode\nlibrary(DT)\ndatatable(penguins, filter = \"top\", options = list(pageLength = 5, autoWidth = TRUE))\n\n\n\n\n\n\nWir können sehen, dass der Datensatz Informationen über verschiedene Pinguinarten enthält, einschließlich weiterer Merkmale wie Gewicht, Geschlecht, Körpergröße und Flossenlänge sowie das Jahr, in dem die Daten erhoben wurden.\nWenn Sie in R einen Datensatz zum ersten Mal inspizieren, kann Ihnen die Funktion head() helfen, die ersten paar Zeilen des Datensatzes anzuzeigen. Dies ist besonders nützlich, um einen schnellen Überblick über die Struktur und den Inhalt des Datensatzes zu erhalten.\nVersuchen Sie sich an der Funktion head() mit dem penguins-Datensatz.\n\n\n\n\n\n\nWarnung\n\n\n\nLeider ist webr als interaktive Komponente noch nicht auf dem Stand von R 4.5.0 Daher kann der Datensatz penguins nicht direkt verwendet werden. Für die aktuelle Demo wird das Paket palmerpenguins geladen und der leicht von der baser Version abweichende penguins Datensatz verwendet.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Einführung</span>"
+    ]
+  },
+  {
+    "objectID": "intro.html#erste-schritte-in-r",
+    "href": "intro.html#erste-schritte-in-r",
+    "title": "1  Einführung",
+    "section": "",
+    "text": "Hinweis\n\n\n\n\n\nHier könnte ein Hinweis stehen :) Für den Moment reicht es aber, wenn Sie auf “Run Code” klicken.\n\n\n\n\n\n\n\n\n\n\n\nLösung\n\n\n\n\n\nDas hier ist die Lösung. Sie können den Codeblock ausführen, um die Ausgabe zu sehen. Sie können die Lösung auch in Ihre Zwischenablage kopieren, indem Sie auf das Klemmbrett-Symbol klicken, das sich rechts im Codeblock befindet, wenn Sie ihren Mauszeiger dorthin bewegen.\n\n\nprint(\"Hallo Welt!\")\nprint(\"Hallo Welt!\")",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Einführung</span>"
+    ]
+  },
+  {
+    "objectID": "intro.html#aufgabentemplate-für-mich",
+    "href": "intro.html#aufgabentemplate-für-mich",
+    "title": "1  Einführung",
+    "section": "1.3 Aufgabentemplate für Mich",
+    "text": "1.3 Aufgabentemplate für Mich\n\nAufgabeHinweisLösung\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHinweis\n\n\n\n\n\n\n#\n#",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Einführung</span>"
+    ]
+  },
+  {
+    "objectID": "intro.html#taschenrechner-in-r",
+    "href": "intro.html#taschenrechner-in-r",
+    "title": "1  Einführung",
+    "section": "1.2 Taschenrechner in R",
+    "text": "1.2 Taschenrechner in R\nR kann auch als Taschenrechner verwendet werden. Sie können einfache mathematische Operationen wie Addition, Subtraktion, Multiplikation und Division durchführen.\nErgänzen Sie den folgenden Codeblock so, dass die Summe 10 ergibt.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHinweis\n\n\n\n\n\nSie müssen die fehlende Zahl in die Lücke eintragen, die durch ______ im Codeblock dargestellt ist. Sie können auch den Codeblock zurücksetzen, indem Sie auf “Start Over” klicken.\n\n\n\n\n\n\n\n\n\n\n\nLösung\n\n\n\n\n\nDie fehlende Zahl ist eine 4. Sie können den Codeblock ausführen, um die Ausgabe zu sehen. Sie können die Lösung auch in Ihre Zwischenablage kopieren, indem Sie auf das Klemmbrett-Symbol klicken, das sich rechts im Codeblock befindet, wenn Sie ihren Mauszeiger dorthin bewegen.\n\n\n1 + 2 + 3 + 4\n1 + 2 + 3 + 4\n\n\n\n\n\n\n\n\n\nNatürlich gibt es neben Addition auch andere mathematische Operationen, die Sie in R durchführen können. So können Sie auch Subtraktion, Multiplikation und Division verwenden.\nEbenso können Sie komplexere mathematische Funktionen wie Quadratwurzeln, Exponentialfunktionen und Logarithmen eingeben und mithilfe von R berechnen.\n\n\n\nOperator\nBeschreibung\n\n\n\n\n+\nAddition\n\n\n-\nSubtraktion\n\n\n*\nMultiplikation\n\n\n/\nDivision\n\n\n^\nPotenzierung\n\n\nsqrt()\nQuadratwurzel\n\n\nlog()\nLogarithmus",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Einführung</span>"
+    ]
+  },
+  {
+    "objectID": "intro.html#aufgabentemplate-für-übungen",
+    "href": "intro.html#aufgabentemplate-für-übungen",
+    "title": "1  Einführung",
+    "section": "1.4 Aufgabentemplate für Übungen",
+    "text": "1.4 Aufgabentemplate für Übungen\n\nAufgabeHinweisLösung\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHinweis\n\n\n\n\n\n\n#\n#",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Einführung</span>"
+    ]
+  },
+  {
+    "objectID": "intro.html#aufgabentemplate-2",
+    "href": "intro.html#aufgabentemplate-2",
+    "title": "1  Einführung",
+    "section": "1.5 Aufgabentemplate 2",
+    "text": "1.5 Aufgabentemplate 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHinweis\n\n\n\n\n\nHinweis-Text. Das ist ein Test.\n\n\n\n\n\n\n\n\n\n\n\nLösung\n\n\n\n\n\nErklärung\n\n\nhead(penguins)\nhead(penguins)",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Einführung</span>"
+    ]
+  },
+  {
+    "objectID": "intro.html#aufgabe",
+    "href": "intro.html#aufgabe",
+    "title": "1  Einführung",
+    "section": "1.4 Aufgabe",
+    "text": "1.4 Aufgabe\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHinweis\n\n\n\n\n\nVerwenden Sie die Funktion head(). Fügen Sie den Namen des Datensatzes in die Klammern ein. In unserem Fall ist das penguins.\n\n\n\n\n\n\n\n\n\n\n\nTip\n\n\n\n\n\n\n\nhead(penguins)\nhead(penguins)",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Einführung</span>"
+    ]
+  },
+  {
+    "objectID": "intro.html#aufgabentemplate-für-übungen-tabs",
+    "href": "intro.html#aufgabentemplate-für-übungen-tabs",
+    "title": "1  Einführung",
+    "section": "1.5 Aufgabentemplate für Übungen (Tabs)",
+    "text": "1.5 Aufgabentemplate für Übungen (Tabs)\n\nAufgabeHinweisLösung\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHinweis\n\n\n\n\n\n\n#\n#",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Einführung</span>"
+    ]
+  },
+  {
+    "objectID": "intro.html#aufgabentemplate-für-übungen-callouts",
+    "href": "intro.html#aufgabentemplate-für-übungen-callouts",
+    "title": "1  Einführung",
+    "section": "1.6 Aufgabentemplate für Übungen (Callouts)",
+    "text": "1.6 Aufgabentemplate für Übungen (Callouts)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHinweis\n\n\n\n\n\nHinweis-Text. Das ist ein Test.\n\n\n\n\n\n\n\n\n\n\n\nLösung\n\n\n\n\n\nErklärung\n\n\nhead(penguins)\nhead(penguins)",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Einführung</span>"
+    ]
+  }
+]

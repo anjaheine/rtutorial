@@ -1,0 +1,275 @@
+---
+format: live-html
+webr:
+  packages:
+    - dplyr
+    - DT
+    - palmerpenguins
+---
+
+{{< include ./_extensions/r-wasm/live/_knitr.qmd >}}
+{{< include ./_extensions/r-wasm/live/_gradethis.qmd >}}
+
+# Einführung
+
+Das ist nur eine Demo um zu zeigen, wie eine mögliche Integration in den Modulinhalt aussehen könnte.
+
+## Erste Schritte in R
+
+In der Praxis arbeitet man oft mit großen Datenmengen, bei denen eine Berechnung von Hand sehr aufwendig wäre. Daher kann es sinnvoll,sein diese Berechnungen mit einer Statistiksoftware durchzuführen.
+
+Wir nutzen R, eine freie Software, die sich besonders gut für statistische Analysen eignet. R ist eine Programmiersprache und bietet eine Vielzahl von Funktionen und Paketen, die es ermöglichen, Daten zu importieren, zu bearbeiten und zu analysieren. In diesem Abschnitt werden Sie lernen, wie Sie erste Schritte in der Programmiersprache unternehmen können.
+
+Das praktische an diesem digitalen Buch ist, dass Sie direkt im Browser mit R arbeiten können. Sie benötigen zunächst keine zusätzliche Softwareinstallation. Alles, was Sie brauchen, ist ein Internetzugang und einen Webbrowser.
+
+In einem späteren Abschnitt werden wir Ihnen zeigen, wie Sie R auf Ihrem eigenen Computer installieren können, um auch offline arbeiten zu können und Ihre eigenen Datensätze zu analysieren.
+
+Wir verwenden interaktive Codeblöcke. Sie können den Code in solchen Blöcken ausführen, indem Sie auf die Schaltfläche "Run Code" klicken.
+
+Desweiteren können Sie auch auf "Start Over" klicken, um den Codeblock auf den Anfangszustand zurückzusetzen und von vorne zu beginnen.
+
+Einige Aufgaben enthalten einen Button "Show Hint", der Ihnen Hinweise zur Lösung der Aufgabe gibt. 
+
+Wenn Ihnen das nicht geholfen hat und sie die Lösung sehen möchten, können Sie auf "Show Solution" klicken. Diese Option sollten Sie allerdings nur verwenden, wenn Sie selber wirklich nicht weiterkommen, denn es ist ein wichtiger Bestandteil des Lernprozesses, sich selbstständig Lösungen zu erarbeiten.
+
+```{webr}
+#| exercise: first-step
+print("Hallo Welt!")
+```
+
+::: { .hint exercise="first-step"}
+::: { .callout-note collapse="false"}
+## Hinweis
+
+Hier könnte ein Hinweis stehen :)
+Für den Moment reicht es aber, wenn Sie auf "Run Code" klicken.
+
+:::
+:::
+
+::: { .solution exercise="first-step" }
+::: { .callout-tip collapse="false"}
+## Lösung
+
+Das hier ist die Lösung. Sie können den Codeblock ausführen, um die Ausgabe zu sehen. Sie können die Lösung auch in Ihre Zwischenablage kopieren, indem Sie auf das Klemmbrett-Symbol klicken, das sich rechts im Codeblock befindet, wenn Sie ihren Mauszeiger dorthin bewegen.
+
+```{webr}
+#| exercise: first-step
+#| solution: true
+print("Hallo Welt!")
+```
+
+```{webr}
+#| exercise: first-step
+#| check: true
+gradethis::grade_this_code()
+```
+:::
+:::
+
+## Taschenrechner in R
+
+R kann auch als Taschenrechner verwendet werden. Sie können einfache mathematische Operationen wie Addition, Subtraktion, Multiplikation und Division durchführen.
+
+Ergänzen Sie den folgenden Codeblock so, dass die Summe 10 ergibt.
+
+```{webr}
+#| exercise: addition
+1 + 2 + 3 + ______
+```
+
+::: { .hint exercise="addition"}
+::: { .callout-note collapse="false"}
+## Hinweis
+
+Sie müssen die fehlende Zahl in die Lücke eintragen, die durch ______ im Codeblock dargestellt ist. Sie können auch den Codeblock zurücksetzen, indem Sie auf "Start Over" klicken.
+
+:::
+:::
+
+::: { .solution exercise="addition" }
+::: { .callout-tip collapse="false"}
+## Lösung
+
+Die fehlende Zahl ist eine 4. Sie können den Codeblock ausführen, um die Ausgabe zu sehen. Sie können die Lösung auch in Ihre Zwischenablage kopieren, indem Sie auf das Klemmbrett-Symbol klicken, das sich rechts im Codeblock befindet, wenn Sie ihren Mauszeiger dorthin bewegen.
+
+```{webr}
+#| exercise: addition
+#| solution: true
+1 + 2 + 3 + 4
+```
+
+```{webr}
+#| exercise: addition
+#| check: true
+gradethis::grade_this_code()
+```
+:::
+:::
+
+Natürlich gibt es neben Addition auch andere mathematische Operationen, die Sie in R durchführen können. So können Sie auch Subtraktion, Multiplikation und Division verwenden. 
+
+Ebenso können Sie komplexere mathematische Funktionen wie Quadratwurzeln, Exponentialfunktionen und Logarithmen eingeben und mithilfe von R berechnen.
+
+| Operator | Beschreibung | 
+|:--------:|:------------:|
+| `+`      | Addition     |
+| `-`      | Subtraktion  |
+| `*`      | Multiplikation|
+| `/`      | Division     |
+| `^`      | Potenzierung |
+| `sqrt()` | Quadratwurzel |
+| `log()`  | Logarithmus  |
+
+
+
+## Die Palmer-Archipel Pingune
+
+![Die Palmer-Archipel Pinguine. Artwork von Allison Horst.](https://allisonhorst.github.io/palmerpenguins/reference/figures/lter_penguins.png){width="50%"}
+
+
+In Ihrem Studium wird R selten als einfacher Taschenrechner verwendet. Vielmehr hat man oft große Datenmengen in umfangreichen Tabellen vorliegen.
+
+Eine solche Tabelle ist auch der "penguins"-Datensatz, der Informationen über Pinguine enthält, wie z. B. die Körpergröße, das Gewicht und die Art. Diese Daten stammen von der Palmer-Station in der Antarktis. Der Großteil der wissenschaftlichen Forschung, die an der Palmer-Station durchgeführt wird, betrifft die Meeresbiologie.
+
+Schauen wir uns zunächst einmal an, wie der Datensatz aussieht.
+
+```{r}
+#| code-fold: true
+library(DT)
+datatable(penguins, filter = "top", options = list(pageLength = 5, autoWidth = TRUE))
+```
+
+Wir können sehen, dass der Datensatz Informationen über verschiedene Pinguinarten enthält, einschließlich weiterer Merkmale wie Gewicht, Geschlecht, Körpergröße und Flossenlänge sowie das Jahr, in dem die Daten erhoben wurden.
+
+Wenn Sie in R einen Datensatz zum ersten Mal inspizieren, kann Ihnen die Funktion `head()` helfen, die ersten paar Zeilen des Datensatzes anzuzeigen. Dies ist besonders nützlich, um einen schnellen Überblick über die Struktur und den Inhalt des Datensatzes zu erhalten.
+
+Versuchen Sie sich an der Funktion `head()` mit dem `penguins`-Datensatz.
+
+::: {.callout-warning}
+### Warnung
+Leider ist webr als interaktive Komponente noch nicht auf dem Stand von R 4.5.0 Daher kann der Datensatz penguins nicht direkt verwendet werden. Für die aktuelle Demo wird das Paket palmerpenguins geladen und der leicht von der baser Version abweichende penguins Datensatz verwendet. 
+:::
+
+## Aufgabe
+
+```{webr}
+#| setup: true
+#| exercise: head-penguins
+penguins <- palmerpenguins::penguins
+```
+
+```{webr}
+#| exercise: head-penguins
+#| caption: Aufgabe
+# Lassen Sie sich die ersten Zeilen von `penguins` anzeigen.
+______
+```
+
+::: {.hint exercise="head-penguins"}
+::: { .callout-note collapse="false"}
+
+## Hinweis
+Verwenden Sie die Funktion `head()`. Fügen Sie den Namen des Datensatzes in die Klammern ein. In unserem Fall ist das `penguins`.
+:::
+:::
+
+::: {.solution exercise="head-penguins"}
+::: {.callout-tip collapse="false"}
+```{webr}
+#| exercise: head-penguins
+#| solution: true
+head(penguins)
+```
+
+```{webr}
+#| exercise: head-penguins
+#| check: true
+gradethis::grade_this_code()
+```
+:::
+:::
+
+
+## Aufgabentemplate für Übungen (Tabs)
+
+::::: panel-tabset
+## Aufgabe
+
+```{webr}
+#| setup: true
+#| exercise: name
+#
+```
+
+```{webr}
+#| exercise: name
+#| caption: Aufgabe
+#
+```
+
+## Hinweis
+
+::: {.hint exercise="name"}
+Hinweis
+:::
+
+## Lösung
+
+::: {.solution exercise="name"}
+```{webr}
+#| exercise: name
+#| solution: true
+#
+```
+:::
+
+```{webr}
+#| exercise: name
+#| check: true
+gradethis::grade_this_code()
+```
+:::::
+
+## Aufgabentemplate für Übungen (Callouts)
+
+
+```{webr}
+#| setup: true
+#| exercise: name2
+# Setup
+```
+
+```{webr}
+#| exercise: name2
+# Aufgabe
+```
+
+::: { .hint exercise="name2"}
+::: { .callout-note collapse="false"}
+## Hinweis
+
+Hinweis-Text. Das ist ein Test.
+
+:::
+:::
+
+::: { .solution exercise="name2" }
+::: { .callout-tip collapse="false"}
+## Lösung
+
+Erklärung
+
+```{webr}
+#| exercise: name2
+#| solution: true
+head(penguins)
+```
+
+```{webr}
+#| exercise: name2
+#| check: true
+gradethis::grade_this_code()
+```
+:::
+:::
