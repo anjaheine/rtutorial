@@ -9,9 +9,8 @@ book:
   - intro.qmd
   - references.qmd
 bibliography: references.bib
-format:
-  html:
-    css: include/webex.css
-    include-after-body: include/webex.js
+format: live-html
 engine: knitr
 editor: visual
+
+

@@ -7,7 +7,8 @@ webr:
     - palmerpenguins
 ---
 
-{{< include ./_extensions/r-wasm/live/_knitr.qmd >}}
+{{< include ./_extensions/r-wasm/live/_knitr.qmd >}} 
+<br>
 {{< include ./_extensions/r-wasm/live/_gradethis.qmd >}}
 
 # Einführung
@@ -28,7 +29,7 @@ Wir verwenden interaktive Codeblöcke. Sie können den Code in solchen Blöcken 
 
 Desweiteren können Sie auch auf "Start Over" klicken, um den Codeblock auf den Anfangszustand zurückzusetzen und von vorne zu beginnen.
 
-Einige Aufgaben enthalten einen Button "Show Hint", der Ihnen Hinweise zur Lösung der Aufgabe gibt. 
+Einige Aufgaben enthalten einen Button "Show Hint", der Ihnen Hinweise zur Lösung der Aufgabe gibt.
 
 Wenn Ihnen das nicht geholfen hat und sie die Lösung sehen möchten, können Sie auf "Show Solution" klicken. Diese Option sollten Sie allerdings nur verwenden, wenn Sie selber wirklich nicht weiterkommen, denn es ist ein wichtiger Bestandteil des Lernprozesses, sich selbstständig Lösungen zu erarbeiten.
 
@@ -37,18 +38,16 @@ Wenn Ihnen das nicht geholfen hat und sie die Lösung sehen möchten, können Si
 print("Hallo Welt!")
 ```
 
-::: { .hint exercise="first-step"}
-::: { .callout-note collapse="false"}
+:::: {.hint exercise="first-step"}
+::: {.callout-note collapse="false"}
 ## Hinweis
 
-Hier könnte ein Hinweis stehen :)
-Für den Moment reicht es aber, wenn Sie auf "Run Code" klicken.
-
+Hier könnte ein Hinweis stehen :) Für den Moment reicht es aber, wenn Sie auf "Run Code" klicken.
 :::
-:::
+::::
 
-::: { .solution exercise="first-step" }
-::: { .callout-tip collapse="false"}
+:::: {.solution exercise="first-step"}
+::: {.callout-tip collapse="false"}
 ## Lösung
 
 Das hier ist die Lösung. Sie können den Codeblock ausführen, um die Ausgabe zu sehen. Sie können die Lösung auch in Ihre Zwischenablage kopieren, indem Sie auf das Klemmbrett-Symbol klicken, das sich rechts im Codeblock befindet, wenn Sie ihren Mauszeiger dorthin bewegen.
@@ -65,7 +64,7 @@ print("Hallo Welt!")
 gradethis::grade_this_code()
 ```
 :::
-:::
+::::
 
 ## Taschenrechner in R
 
@@ -78,17 +77,16 @@ Ergänzen Sie den folgenden Codeblock so, dass die Summe 10 ergibt.
 1 + 2 + 3 + ______
 ```
 
-::: { .hint exercise="addition"}
-::: { .callout-note collapse="false"}
+:::: {.hint exercise="addition"}
+::: {.callout-note collapse="false"}
 ## Hinweis
 
-Sie müssen die fehlende Zahl in die Lücke eintragen, die durch ______ im Codeblock dargestellt ist. Sie können auch den Codeblock zurücksetzen, indem Sie auf "Start Over" klicken.
-
+Sie müssen die fehlende Zahl in die Lücke eintragen, die durch \_\_\_\_\_\_ im Codeblock dargestellt ist. Sie können auch den Codeblock zurücksetzen, indem Sie auf "Start Over" klicken.
 :::
-:::
+::::
 
-::: { .solution exercise="addition" }
-::: { .callout-tip collapse="false"}
+:::: {.solution exercise="addition"}
+::: {.callout-tip collapse="false"}
 ## Lösung
 
 Die fehlende Zahl ist eine 4. Sie können den Codeblock ausführen, um die Ausgabe zu sehen. Sie können die Lösung auch in Ihre Zwischenablage kopieren, indem Sie auf das Klemmbrett-Symbol klicken, das sich rechts im Codeblock befindet, wenn Sie ihren Mauszeiger dorthin bewegen.
@@ -105,28 +103,25 @@ Die fehlende Zahl ist eine 4. Sie können den Codeblock ausführen, um die Ausga
 gradethis::grade_this_code()
 ```
 :::
-:::
+::::
 
-Natürlich gibt es neben Addition auch andere mathematische Operationen, die Sie in R durchführen können. So können Sie auch Subtraktion, Multiplikation und Division verwenden. 
+Natürlich gibt es neben Addition auch andere mathematische Operationen, die Sie in R durchführen können. So können Sie auch Subtraktion, Multiplikation und Division verwenden.
 
 Ebenso können Sie komplexere mathematische Funktionen wie Quadratwurzeln, Exponentialfunktionen und Logarithmen eingeben und mithilfe von R berechnen.
 
-| Operator | Beschreibung | 
-|:--------:|:------------:|
-| `+`      | Addition     |
-| `-`      | Subtraktion  |
-| `*`      | Multiplikation|
-| `/`      | Division     |
-| `^`      | Potenzierung |
-| `sqrt()` | Quadratwurzel |
-| `log()`  | Logarithmus  |
-
-
+| Operator |  Beschreibung  |
+|:--------:|:--------------:|
+|   `+`    |    Addition    |
+|   `-`    |  Subtraktion   |
+|   `*`    | Multiplikation |
+|   `/`    |    Division    |
+|   `^`    |  Potenzierung  |
+| `sqrt()` | Quadratwurzel  |
+| `log()`  |  Logarithmus   |
 
 ## Die Palmer-Archipel Pingune
 
 ![Die Palmer-Archipel Pinguine. Artwork von Allison Horst.](https://allisonhorst.github.io/palmerpenguins/reference/figures/lter_penguins.png){width="50%"}
-
 
 In Ihrem Studium wird R selten als einfacher Taschenrechner verwendet. Vielmehr hat man oft große Datenmengen in umfangreichen Tabellen vorliegen.
 
@@ -146,9 +141,10 @@ Wenn Sie in R einen Datensatz zum ersten Mal inspizieren, kann Ihnen die Funktio
 
 Versuchen Sie sich an der Funktion `head()` mit dem `penguins`-Datensatz.
 
-::: {.callout-warning}
+::: callout-warning
 ### Warnung
-Leider ist webr als interaktive Komponente noch nicht auf dem Stand von R 4.5.0 Daher kann der Datensatz penguins nicht direkt verwendet werden. Für die aktuelle Demo wird das Paket palmerpenguins geladen und der leicht von der baser Version abweichende penguins Datensatz verwendet. 
+
+Leider ist webr als interaktive Komponente noch nicht auf dem Stand von R 4.5.0 Daher kann der Datensatz penguins nicht direkt verwendet werden. Für die aktuelle Demo wird das Paket palmerpenguins geladen und der leicht von der baser Version abweichende penguins Datensatz verwendet.
 :::
 
 ## Aufgabe
@@ -166,15 +162,15 @@ penguins <- palmerpenguins::penguins
 ______
 ```
 
-::: {.hint exercise="head-penguins"}
-::: { .callout-note collapse="false"}
-
+:::: {.hint exercise="head-penguins"}
+::: {.callout-note collapse="false"}
 ## Hinweis
+
 Verwenden Sie die Funktion `head()`. Fügen Sie den Namen des Datensatzes in die Klammern ein. In unserem Fall ist das `penguins`.
 :::
-:::
+::::
 
-::: {.solution exercise="head-penguins"}
+:::: {.solution exercise="head-penguins"}
 ::: {.callout-tip collapse="false"}
 ```{webr}
 #| exercise: head-penguins
@@ -188,8 +184,7 @@ head(penguins)
 gradethis::grade_this_code()
 ```
 :::
-:::
-
+::::
 
 ## Aufgabentemplate für Übungen (Tabs)
 
@@ -233,7 +228,6 @@ gradethis::grade_this_code()
 
 ## Aufgabentemplate für Übungen (Callouts)
 
-
 ```{webr}
 #| setup: true
 #| exercise: name2
@@ -245,17 +239,16 @@ gradethis::grade_this_code()
 # Aufgabe
 ```
 
-::: { .hint exercise="name2"}
-::: { .callout-note collapse="false"}
+:::: {.hint exercise="name2"}
+::: {.callout-note collapse="false"}
 ## Hinweis
 
 Hinweis-Text. Das ist ein Test.
-
 :::
-:::
+::::
 
-::: { .solution exercise="name2" }
-::: { .callout-tip collapse="false"}
+:::: {.solution exercise="name2"}
+::: {.callout-tip collapse="false"}
 ## Lösung
 
 Erklärung
@@ -272,4 +265,4 @@ head(penguins)
 gradethis::grade_this_code()
 ```
 :::
-:::
+::::
