@@ -7,10 +7,10 @@ book:
   chapters:
   - index.qmd
   - intro.qmd
+  - Templates.qmd
   - references.qmd
 bibliography: references.bib
 format: live-html
 engine: knitr
-editor: visual
 
 

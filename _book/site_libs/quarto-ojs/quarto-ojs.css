@@ -161,3 +161,7 @@ div.observablehq input[type="date"] {
   padding: 0.8em 0.5em 0.8em 0.5em;
   border-color: rgba(220, 220, 220, 0.3);
 }
+
+.observablehq--error {
+  display: none;
+}

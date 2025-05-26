@@ -7,8 +7,8 @@ webr:
     - palmerpenguins
 ---
 
-{{< include ./_extensions/r-wasm/live/_knitr.qmd >}} 
-<br>
+{{< include ./_extensions/r-wasm/live/_knitr.qmd >}}
+
 {{< include ./_extensions/r-wasm/live/_gradethis.qmd >}}
 
 # Einführung
@@ -119,6 +119,77 @@ Ebenso können Sie komplexere mathematische Funktionen wie Quadratwurzeln, Expon
 | `sqrt()` | Quadratwurzel  |
 | `log()`  |  Logarithmus   |
 
+::: {.panel-tabset}
+## MC-Aufgabe
+
+```{ojs}
+//| echo: false
+
+md`Welches Ergebnis zeigt mir R an, wenn ich \`4+6/2\` eingebe?`
+viewof answer1 = Inputs.form([
+  Inputs.checkbox(["5"]), 
+  Inputs.checkbox(["10"]),
+  Inputs.checkbox(["7"]),
+  Inputs.checkbox(["Fehler"])
+])
+html`<br>`
+
+html`${await ojscorrect1(answerstud1, answerkey1, checkbtn1)}`
+
+viewof checkbtn1 = Inputs.button([
+  ["Check", value => value + 1],
+  ["Nochmal", value => 0]
+], {value: 0})
+
+answerkey1 = [0,0,1,0]
+
+answerstud1 = answer1.map(subArray => {
+  if (subArray.length === 0) {
+    return 0;
+  } else {
+    return 1;
+  }
+})
+
+```
+
+```{webr}
+#| edit: false
+#| output: false
+#| input:
+#|   - answerstud1
+#|   - answerkey1
+#|   - checkbtn1
+#| define:
+#|   - ojscorrect1
+
+ojscorrect1 <- function(answerstud1, answerkey1, checkbtn1) {
+  if (checkbtn1 == 1)
+    if (identical(answerstud1, answerkey1) == TRUE)
+      return('<p><span style="color:green; font-weight:bold">Genau richtig!</span>')
+    else
+      return('<p><span style="color:red; font-weight:bold">Versuch es nochmal...</span>')
+  else
+    return('')
+}
+
+```
+
+## Erklärung
+::: {.callout-tip}
+## Erklärung
+
+Auch in R gilt die Punkt-Vor-Strich-Regel, die sie wahrscheinlich noch aus der Schule kennen. Die Operatorrangfolge wird dabei eingehalten. Das heißt:
+
+1. Potenzierung
+2. Multiplikation und Division
+3. Addition und Subtraktion
+
+Wenn Sie eine andere Reihenfolge als diese benötigen, dann vergessen Sie nicht Klammern zu setzen! 
+:::
+
+:::
+
 ## Die Palmer-Archipel Pingune
 
 ![Die Palmer-Archipel Pinguine. Artwork von Allison Horst.](https://allisonhorst.github.io/palmerpenguins/reference/figures/lter_penguins.png){width="50%"}
@@ -147,7 +218,6 @@ Versuchen Sie sich an der Funktion `head()` mit dem `penguins`-Datensatz.
 Leider ist webr als interaktive Komponente noch nicht auf dem Stand von R 4.5.0 Daher kann der Datensatz penguins nicht direkt verwendet werden. Für die aktuelle Demo wird das Paket palmerpenguins geladen und der leicht von der baser Version abweichende penguins Datensatz verwendet.
 :::
 
-## Aufgabe
 
 ```{webr}
 #| setup: true
@@ -164,7 +234,7 @@ ______
 
 :::: {.hint exercise="head-penguins"}
 ::: {.callout-note collapse="false"}
-## Hinweis
+### Hinweis
 
 Verwenden Sie die Funktion `head()`. Fügen Sie den Namen des Datensatzes in die Klammern ein. In unserem Fall ist das `penguins`.
 :::
@@ -186,83 +256,3 @@ gradethis::grade_this_code()
 :::
 ::::
 
-## Aufgabentemplate für Übungen (Tabs)
-
-::::: panel-tabset
-## Aufgabe
-
-```{webr}
-#| setup: true
-#| exercise: name
-#
-```
-
-```{webr}
-#| exercise: name
-#| caption: Aufgabe
-#
-```
-
-## Hinweis
-
-::: {.hint exercise="name"}
-Hinweis
-:::
-
-## Lösung
-
-::: {.solution exercise="name"}
-```{webr}
-#| exercise: name
-#| solution: true
-#
-```
-:::
-
-```{webr}
-#| exercise: name
-#| check: true
-gradethis::grade_this_code()
-```
-:::::
-
-## Aufgabentemplate für Übungen (Callouts)
-
-```{webr}
-#| setup: true
-#| exercise: name2
-# Setup
-```
-
-```{webr}
-#| exercise: name2
-# Aufgabe
-```
-
-:::: {.hint exercise="name2"}
-::: {.callout-note collapse="false"}
-## Hinweis
-
-Hinweis-Text. Das ist ein Test.
-:::
-::::
-
-:::: {.solution exercise="name2"}
-::: {.callout-tip collapse="false"}
-## Lösung
-
-Erklärung
-
-```{webr}
-#| exercise: name2
-#| solution: true
-head(penguins)
-```
-
-```{webr}
-#| exercise: name2
-#| check: true
-gradethis::grade_this_code()
-```
-:::
-::::
